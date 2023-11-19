@@ -4,17 +4,11 @@
 namespace App\Services;
 
 use App\Dtos\PessoaDto;
-use Illuminate\Auth\Access\AuthorizationException;
-use App\Exceptions\expense\ExpenseNotFoundException;
+
 use App\Http\Resources\PessoaCollection;
 use App\Http\Resources\PessoaResource;
 use App\Repositories\PessoaRepository;
 use Ramsey\Uuid\Uuid;
-
-//use App\Http\Resources\ExpenseCollection;
-//use App\Http\Resources\ExpenseResource;
-//use App\Repositories\ExpenseRepository;
-
 
 class PessoaService
 {

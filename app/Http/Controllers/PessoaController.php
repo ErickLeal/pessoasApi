@@ -55,14 +55,14 @@ class PessoaController extends Controller
 
         return response()->json([
             'menssagem' => 'Sucesso',
-            'expense' => $pessoa,
+            'pessoa' => $pessoa,
         ], 200);
     }
 
     public function index(IndexPessoaRequest $request)
     {
         $dados = $request->validated();
-
+      
         $pessoas = $this->pessoaService->buscarPorTermo($dados['t']);
 
         return response()->json([

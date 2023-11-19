@@ -44,7 +44,7 @@ class PessoaRepository
 
     public function buscarPessoasPorTermo(string $termo): PessoaCollection
     {
-
+       
         $aggregation = [
             [
                 '$search' => [
@@ -58,12 +58,12 @@ class PessoaRepository
                 '$limit' => 50
             ]
         ];
-
+       
         $pessoas = Pessoa::raw(function ($collection) use ($aggregation) {
             return $collection->aggregate($aggregation);
         });
 
-
+     
         return new PessoaCollection($pessoas);
     }
 

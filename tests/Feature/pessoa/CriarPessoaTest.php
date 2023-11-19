@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\pessoa;
 
+use App\Models\Pessoa;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 use Illuminate\Support\Str;
@@ -12,26 +13,46 @@ class CriarPessoaTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function test_criar_pessoa_deve_funcionar(){
+    public function test_criar_pessoa_deve_funcionar()
+    {
 
         $response =  $this->postJson('/api/pessoas', [
             'nome' => 'User Test',
             'apelido' => 'Test',
             'nascimento' => '2000-02-02',
-            'stack' => ['PHP','MONGODB']
+            'stack' => ['PHP', 'MONGODB']
         ]);
         $response->assertStatus(201);
-       
+
         $this->assertDatabaseHas('pessoas', [
             'nome' => 'User Test',
             'apelido' => 'Test'
         ]);
     }
 
-    public function test_criar_pessoa_deve_falhar_sem_campos_obrigatorios(){
+    public function test_criar_pessoa_deve_retornar_erro_quando_duplicado()
+    {
+
+        Pessoa::factory()->create([
+            'apelido' => 'Teste',
+        ]);
+
+        $response =  $this->postJson('/api/pessoas', [
+            'nome' => 'nome',
+            'apelido' => 'Teste',
+            'nascimento' => '2000-02-02',
+            'stack' => ['PHP', 'MONGODB']
+        ]);
+
+        $response->assertStatus(409);
+     
+    }
+
+    public function test_criar_pessoa_deve_falhar_sem_campos_obrigatorios()
+    {
 
         $response =  $this->postJson('/api/pessoas', ['']);
-        $response->assertStatus(422);
+        $response->assertStatus(400);
         $response->assertJsonValidationErrors(['nome', 'apelido', 'nascimento']);
     }
 
@@ -53,8 +74,8 @@ class CriarPessoaTest extends TestCase
             'nascimento' => $nascimento,
             'stack' => $stack
         ]);
-      
-        $response->assertStatus(422)
+
+        $response->assertStatus(400)
             ->assertJsonCount(1, "errors.$campoComErro");
     }
 
@@ -68,5 +89,4 @@ class CriarPessoaTest extends TestCase
             ['stack', Str::random(30), Str::random(30), '2023-01-01', 'PHP'],
         ];
     }
-
 }
