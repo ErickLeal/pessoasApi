@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+ backend:
+    build:
+      args:
+        user: erick
+        uid: 1000
+    tty: true
+    ports:
+      - 8000:8000
+    volumes:
+      - ./:/var/www/html
+    #command: sh -c "composer install"
+    networks:
+      - pessoas-api
+
+networks:
+  pessoas-api:
+    name: pessoas-api
+    driver: bridge
