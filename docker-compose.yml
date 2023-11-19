@@ -11,7 +11,7 @@ services:
       - 8000:8000
     volumes:
       - ./:/var/www/html
-    #command: sh -c "composer install"
+    command: sh -c "composer install"
     networks:
       - pessoas-api
 
