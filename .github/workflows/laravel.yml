@@ -26,5 +26,5 @@ jobs:
       run: chmod -R 777 storage bootstrap/cache
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
-        MONGODB_URI: mongodb+srv://admin:testeerick@cluster0.40qzmtu.mongodb.net/
+        MONGODB_URI: ${{ secrets.MONGODB_URI }}
       run: vendor/bin/phpunit
