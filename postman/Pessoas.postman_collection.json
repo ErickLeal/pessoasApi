@@ -1,0 +1,446 @@
+{
+	"info": {
+		"_postman_id": "573c1f71-f0db-421e-9754-8c0d482d7982",
+		"name": "Pessoas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10787241"
+	},
+	"item": [
+		{
+			"name": "Buscar pessoa por ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/pessoas/8dcdce23-362c-4432-b2e8-eb1a3ca538cd",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"pessoas",
+						"8dcdce23-362c-4432-b2e8-eb1a3ca538cd"
+					]
+				},
+				"description": "Busca pessoa pelo seu id, retorna a pessoa e status code 200.  \nCaso pessoa não seja encontrada retorna 404."
+			},
+			"response": [
+				{
+					"name": "Buscar pessoa por ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/pessoas/8dcdce23-362c-4432-b2e8-eb1a3ca538cd",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"pessoas",
+								"8dcdce23-362c-4432-b2e8-eb1a3ca538cd"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.0RC6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 20 Nov 2023 12:46:57 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "57"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"menssagem\": \"Sucesso\",\n    \"pessoa\": {\n        \"id\": \"8dcdce23-362c-4432-b2e8-eb1a3ca538cd\",\n        \"apelido\": \"erick\",\n        \"nome\": \"erick\",\n        \"nascimento\": \"01/01/2000\",\n        \"stack\": [\n            \"php\",\n            \"laravel\",\n            \"mongodb\"\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Contar pessoas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/contagem-pessoas",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"contagem-pessoas"
+					]
+				},
+				"description": "Conta quantas pessoas foram criadas no banco."
+			},
+			"response": [
+				{
+					"name": "Contar pessoas",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/contagem-pessoas",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"contagem-pessoas"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.0RC6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 20 Nov 2023 12:47:12 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "55"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"menssagem\": \"Sucesso\",\n    \"total_pessoas\": 4\n}"
+				}
+			]
+		},
+		{
+			"name": "Buscar pessoa por termo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/pessoas?t=Rust",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"pessoas"
+					],
+					"query": [
+						{
+							"key": "t",
+							"value": "Rust"
+						}
+					]
+				},
+				"description": "Busca por qualquer usuário que possua o termo pesquisado, seja no nome, apelido ou stack. Retorna status code 200. Caso o parâmetro 't' não seja enviado, retorna status code 400."
+			},
+			"response": [
+				{
+					"name": "Buscar pessoa por termo",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/pessoas?t=Rust",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"pessoas"
+							],
+							"query": [
+								{
+									"key": "t",
+									"value": "Rust"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.0RC6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 20 Nov 2023 12:47:03 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "56"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"menssagem\": \"Sucesso\",\n    \"pessoas\": [\n        {\n            \"id\": \"26d243fa-7b31-4a71-84f3-c139e06ad993\",\n            \"apelido\": \"Jv39gRN6jQtfdqh\",\n            \"nome\": \"HRBjeRNonu6ywjm\",\n            \"nascimento\": \"30/10/2023\",\n            \"stack\": [\n                \"Rust\",\n                \"Go\"\n            ]\n        },\n        {\n            \"id\": \"4ed78282-2108-4c22-8719-8f981a6406af\",\n            \"apelido\": \"zogyTyM0WCFvRgQ\",\n            \"nome\": \"Rust\",\n            \"nascimento\": \"30/10/2023\",\n            \"stack\": [\n                \"php\",\n                \"laravel\"\n            ]\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Criar pessoa",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"apelido\": \"erick\",\n    \"nome\":\"erick\",\n    \"nascimento\":\"2000-01-01\",\n    \"stack\":[\"php\",\"laravel\",\"mongodb\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/pessoas",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"pessoas"
+					]
+				},
+				"description": "Cria uma pesoa no banco de dados, retorna status code 201.  \nCaso pessoa já exista, retorna status code 409.\n\nCaso os campos da request estejam inválidos ou incompletos retorna status code 400."
+			},
+			"response": [
+				{
+					"name": "Criar pessoa",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"apelido\": \"erick\",\n    \"nome\":\"erick\",\n    \"nascimento\":\"2000-01-01\",\n    \"stack\":[\"php\",\"laravel\",\"mongodb\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/pessoas",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"pessoas"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.0RC6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 20 Nov 2023 12:46:43 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Location",
+							"value": "pessoas/8dcdce23-362c-4432-b2e8-eb1a3ca538cd"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"menssagem\": \"Pessoa registrada com sucesso\",\n    \"pessoa\": {\n        \"id\": \"8dcdce23-362c-4432-b2e8-eb1a3ca538cd\",\n        \"apelido\": \"erick\",\n        \"nome\": \"erick\",\n        \"nascimento\": \"01/01/2000\",\n        \"stack\": [\n            \"php\",\n            \"laravel\",\n            \"mongodb\"\n        ]\n    }\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+}

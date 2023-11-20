@@ -21,4 +21,4 @@ Adicionalmente, o arquivo da collection pessoas está disponível no repositóri
 + Todas as funcionalidades possuem testes automatizados.
 + Banco de dados está publicado em um cluster oficial do atlas mongodb.
 + Projeto está dockerizado.
-+ Pipeline integrada no github para rodas os testes a cada pull request ou commit
++ Pipeline integrada no github para rodar os testes a cada pull request ou commit.
