@@ -9,7 +9,9 @@ para iniciar o ambiente, basta rodar:
 `docker compose up -d` <br>
 
 Para funcionamento do projeto, é necessário adicionar o arquivo .env , contendo a conexão com o banco de dados, <br>
-este arquivo foi enviado junto com o link do projeto.
+este arquivo foi enviado junto com o link do projeto. <br>
+
+Para iniciar o serviço do laravel, basta rodar `php artisan serve --host 0.0.0.0`
 
 ## Documentação
 Documentação da Api foi publicada no postman: [Documentação api pessoas](https://documenter.getpostman.com/view/10787241/2s9Ye8hFjk). <br>
